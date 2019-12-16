@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form1" onsubmit="return flase">
+        <input type="number" name="age"><br>
+        <select name="gender">
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+        <br>
+        <button type="button" onclick="check()">ok</button>
+    </form>
+    <div id="info">
+
+    </div>
+    <script>
+        let info = document.querySelector('#info');
+
+
+        function check() { //表單若name有設定的話,會變成document的屬性,就可以用以下的方式拿到值
+            let age = document.form1.age.value * 1;  //要在function裡面拿值, 若在外面拿 會拿到空值 因為還沒填就拿到值了
+            let gender = document.form1.gender.value;
+            info.innerHTML = age >= 18 && gender === '女';
+
+
+
+        }
+
+        // function check() { //表單若name有設定的話,會變成document的屬性,就可以用以下的方式拿到值
+        //     let age = document.form1.age.value * 1;  //要在function裡面拿值, 若在外面拿 會拿到空值 因為還沒填就拿到值了
+        //     let gender = document.form1.gender.value;
+        //     let ans = age >= 18 && gender === '女';
+        //     function word() {
+        //         if (ans === true) {
+        //             return '過關';
+        //         }
+        //         else {
+        //             return '不過關';
+        //         }
+        //     }
+        //     info.innerHTML = word();
+
+        // }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .info {
+            display: inline-block;
+            width: 120px;
+            height: 40px;
+            background-color: blue;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id=input> <button onclick="add()">新增</button>
+    <div id="wrapper"></div>
+
+    <script>
+        let wrapper = document.querySelector('#wrapper');
+        function add() {
+            wrapper.innerHTML += `<div class=info>${input.value}</div>`;
+        }
+
+    </script>
+</body>
+
+</html>

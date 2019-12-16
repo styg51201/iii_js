@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 id="abc">apple</h2>
+    <script>
+        var a = document.getElementById('abc');
+        console.log(a)
+        a.innerHTML = 'bana';
+        a.innerHTML += 'bana';
+
+        // var alert = 300;
+        // alert("123"); //alert 功能不能用了
+
+        let alert = 300;
+        // alert('132'); //用了let宣告變數 alert不能簡寫 要用全名window.alert
+        window.alert('456');
+
+        const c = 123;
+        console.log(c)
+
+        let aa = 10;
+        let b = aa;
+        b = 5;
+        console.log(aa); // aa=10 b不能改寫a
+
+    // let a = document.getElementById('abc');
+    // let b = a;
+    // b.innerHTML='456';
+    // <h2 id='abc'>456</h2>
+    // 跟上面不同 b 可以改寫a的值
+    //除了布林直跟常數跟字串 以外的情況都是複雜情況?  所以可以改寫...吧
+    </script>
+</body>
+
+</html>
