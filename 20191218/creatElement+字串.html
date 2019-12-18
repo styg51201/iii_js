@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #c7fff8;
+        }
+
+        .ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #ff1916;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            left: 100px;
+            top: 100px;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rect"></div>
+    <button onclick="show()">show</button>
+
+
+    <script>
+        let rect = document.querySelector('#rect');
+        let b, i
+        let t = "發大財發大財發大財發"
+        for (i = 0; i < t.length; i++) {
+            b = document.createElement('div');
+            b.className = 'ball';
+            b.innerHTML = t[i];
+            b.style.left = i * 70 + "px"
+            b.style.transition = i * 0.4 + "s";
+            rect.appendChild(b);
+        }
+
+        function show() {
+            let balls = document.querySelectorAll('.ball');
+            for (i = 0; i < balls.length; i++) {
+                balls[i].style.opacity = 1;
+                balls[i].style.top = 200 + 'px';
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>
