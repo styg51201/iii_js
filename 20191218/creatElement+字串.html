@@ -42,30 +42,46 @@
 
 
         for (i = 0; i < t.length; i++) {
-            let balls = document.querySelectorAll('.ball');
+            // let balls = document.querySelectorAll('.ball');
             //創立一個div 賦值給b
             b = document.createElement('div');
 
             //對 b 設一個class name = 'ball'
             b.className = 'ball';
-
+            b
             //對 b 設一個HTML內容為 t[i]
             b.innerHTML = t[i];
 
             //對 b 設一個style為 left: i * 70 + "px"
             b.style.left = i * 70 + "px";
 
+            //對 b 設一個style為 opacity: 1
+
+
             //對 b 設一個style為 transition: .4 + "s"
-            b.style.transition = .4 + "s";
+            b.style.transition = 2 + "s";
+
+            //把 b 加到 id #rect 子層
+            rect.appendChild(b);
 
         }
-        //對 b 設一個style為 opacity: 1
-        // b.style.opacity = 1;
 
-        //把 b 加到 id #rect 子層
-        rect.appendChild(b);
+        //延遲opacity
+        // let bb = document.querySelectorAll('.ball');
+        // i = 0;
+        // for (let s of bb) {
 
-        }
+        //     i++;
+        //     setTimeout(() => {
+        //         s.style.opacity = 1;
+        //     }, 1000 * i);
+
+        // }
+
+
+
+
+
 
         console.log(b);
 
