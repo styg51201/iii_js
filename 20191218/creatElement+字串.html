@@ -39,23 +39,50 @@
         let rect = document.querySelector('#rect');
         let b, i
         let t = "發大財發大財發大財發"
+        let b = 1;
+
         for (i = 0; i < t.length; i++) {
+            let balls = document.querySelectorAll('.ball');
+            //創立一個div 賦值給b
             b = document.createElement('div');
+
+            //對 b 設一個class name = 'ball'
             b.className = 'ball';
+
+            //對 b 設一個HTML內容為 t[i]
             b.innerHTML = t[i];
-            b.style.left = i * 70 + "px"
-            b.style.transition = i * 0.4 + "s";
+
+            //對 b 設一個style為 left: i * 70 + "px"
+            b.style.left = i * 70 + "px";
+
+            //對 b 設一個style為 transition: .4 + "s"
+            b.style.transition = .4 + "s";
+
+            //對 b 設一個style為 opacity: 1
+            // b.style.opacity = 1;
+
+            //把 b 加到 id #rect 子層
             rect.appendChild(b);
         }
 
+        console.log(b);
+
+
+
+
+
+
         function show() {
-            let balls = document.querySelectorAll('.ball');
+            var balls = document.querySelectorAll('.ball');
             for (i = 0; i < balls.length; i++) {
                 balls[i].style.opacity = 1;
                 balls[i].style.top = 200 + 'px';
 
             }
+
         }
+        // console.log(balls);
+
 
     </script>
 </body>
