@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #c7fff8;
+        }
+
+        .ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #ff1916;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            left: 100px;
+            top: 100px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="rect"></div>
+    <button onclick="show()">show</button>
+
+    <script>
+        let rect = document.querySelector('#rect');
+        let b, i, k
+        let n = 1;
+        for (k = 0; k < 6; k++) {
+            for (i = 0; i < 8; i++) {
+                let balls = document.querySelectorAll('.ball');
+                //創立一個div 賦值給b
+                b = document.createElement('div');
+                //對 b 設一個class name = 'ball'
+                b.className = 'ball';
+                b.innerHTML = n;  //讓球裡的數字連續
+                n++;
+                //對 b 設一個style為 left: i * 70 + "px"
+                b.style.left = 50 + 70 * i + "px";
+                b.style.top = 50 + 70 * k + "px";
+                b.onclick = function () {
+                    this.remove();
+                }
+                rect.appendChild(b);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

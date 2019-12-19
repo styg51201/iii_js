@@ -35,22 +35,19 @@
     <script>
         let rect = document.querySelector('#rect');
         let b, i
-        for (i = 0; i < 10; i++) {
+        for (i = 0; i < 20; i++) {
             b = document.createElement('div');
             b.className = 'ball';
             b.innerHTML = 'ball ' + (i + 1);
+            b.style.left = i % 5 * 70 + 'px';
+            b.style.top = parseInt(i / 5) * 70 + 'px';
             rect.appendChild(b);
         }
-
-        var x = 1;
-        var doit = function (y) {
-            x = 100;
-            return x + y;
-
-            var x = 1;
+        let k = 1;
+        while (k--) {
+            console.log(k);
         }
-        console.log(x)
-        console.log(doit(50));
+
         //另一作法
         // for (i = 0; i < 10; i++) {
         //     let left = i * 60, txt = i + 1;

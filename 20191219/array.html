@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="rect"></div>
+
+    <script>
+        let rect = document.querySelector('#rect');
+        const ar = [12, 'abc', 7, -6];
+        console.log(ar['3']);
+        ar[3] = 100;
+        console.log(ar[3]);
+        ar[10] = 10;  //中間會是空的 直接0123接10
+        console.log(ar);
+        rect.innerHTML += ar + '<br>';
+        rect.innerHTML += '-------------<br>';
+        for (s in ar) {
+            rect.innerHTML += ` ${ar[s]} `  /// 中間沒有 直接0123接10
+        }
+    </script>
+</body>
+
+</html>

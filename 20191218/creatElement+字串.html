@@ -39,7 +39,7 @@
         let rect = document.querySelector('#rect');
         let b, i
         let t = "發大財發大財發大財發"
-        let b = 1;
+
 
         for (i = 0; i < t.length; i++) {
             let balls = document.querySelectorAll('.ball');
@@ -58,17 +58,23 @@
             //對 b 設一個style為 transition: .4 + "s"
             b.style.transition = .4 + "s";
 
-            //對 b 設一個style為 opacity: 1
-            // b.style.opacity = 1;
+        }
+        //對 b 設一個style為 opacity: 1
+        // b.style.opacity = 1;
 
-            //把 b 加到 id #rect 子層
-            rect.appendChild(b);
+        //把 b 加到 id #rect 子層
+        rect.appendChild(b);
+
         }
 
         console.log(b);
 
+        var a;
+        for (i = 0; i < 5; i++) {
+            a++;
 
-
+        }
+        console.log()
 
 
 

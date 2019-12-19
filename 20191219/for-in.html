@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="rect"></div>
+
+    <script>
+        let rect = document.querySelector('#rect');
+        let s;
+        const person = {
+            name: 'bill',
+            age: 20,
+            gender: 'male',
+            boy: {
+                age: 5,
+                name: 'deive'
+            }
+        };
+        for (s in person) {
+            rect.innerHTML += `key=${s} value=${person[s]}<br>`;
+        };
+
+        const p1 = {
+            name: 'bill',
+            age: 20,
+            gender: 'male',
+        };
+        const p2 = {
+            age: 5,
+            name: 'deive'
+        };
+        const p3 = {
+            age: 5,
+            name: 'jean'
+        }
+        let one = p1;
+        one['name'] = 'Peter'; //可以改寫
+        console.log(one)
+
+
+        p1.next = p2;
+        p2.next = p3;
+        console.log(p1);// 看起來像在子層 但其實不是 只是接在他後面
+
+
+    </script>
+</body>
+
+</html>
