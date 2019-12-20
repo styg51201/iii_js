@@ -6,22 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        #info {
+            background: lightblue;
+            min-width: 500px;
+            min-height: 500px;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="info"></div>
+    <label for="">行</label><input class="row" type="number"><br>
+    <label for="">列</label><input class='clom' type="number"><br>
+    <div id="info">
 
+    </div>
     <script>
-        const info = document.querySelector('#info');
-        let a = 0;
 
-        for (let i = 0; i < 5; i++) {
-
-            a += 1;
-            console.log(a);
-        }
-
-        console.log(a);
     </script>
 </body>
 

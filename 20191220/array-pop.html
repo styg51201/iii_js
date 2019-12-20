@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="rect"></div>
+    <script>
+        let rect = document.querySelector('#rect');
+        let ar = [22, 33, 44]
+        rect.innerHTML += ar + '<br>-------------------<br>'
+        let z = ar.pop();
+        rect.innerHTML += ar + '<br>-------------------<br>'
+        ar.push(55);
+        rect.innerHTML += ar + '<br>-------------------<br>'
+
+        let i
+        let ar1 = [], br = [], cr = [];
+        for (i = 1; i < 100; i += 2) {
+            ar1.push(i);
+        };
+        //三元運算子 i/2的餘數為1時 = ture 會放進br裡
+        //          i/2的餘數為0時 = flase 會放進cr裡
+        for (i = 1; i <= 30; i++) {
+            i % 2 ? br.push(i) : cr.push(i);
+        };
+        rect.innerHTML += ar1 + '<br>-------------------<br>';
+        rect.innerHTML += br + '<br>-------------------<br>';
+        rect.innerHTML += cr + '<br>-------------------<br>';
+
+        let dr = br; //變數的賦值如果不是基本類型 就是參照 ...?
+        // dr2 = br.concat(); // 不給參數-->前層複製 
+        let dr2 = br.slice(); //不給參數-->前層複製 
+
+        dr[0] = 22;
+        br[1] = 333;
+        console.log(dr);
+        console.log(dr2) //複製一個新的 跟原本的陣列無關 並不會被修改到
+
+        //亂數排序
+        ar1.sort(function () {
+            return Math.random() - .5;
+        }); // 亂數排序
+        rect.innerHTML += JSON.stringify(ar1) + '<br>';
+
+        let person = [{ name: 'jean', age: 20, gender: 'male' }
+            , { age: 5, name: 'zdei' }
+            , { age: 5, name: 'bill' }]
+        //字串排序用比大小的
+        person.sort(function (a, b) {
+            return (b.name > a.name) ? 1 : -1;
+            // return !!(b.name - a.name) - 1; 不可以用減的 會等於NAN = flase  
+        });
+        rect.innerHTML += JSON.stringify(person) + '<br>';
+
+        console.log('amy' - 'bill')
+        console.log(!!(NaN));
+    </script>
+</body>
+
+</html>

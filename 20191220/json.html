@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="rect"></div>
+
+    <script>
+        let rect = document.querySelector('#rect');
+        let ar = [{ name: 'bill', age: 20, gender: 'male' }
+            , { age: 5, name: 'deive' }
+            , { age: 5, name: 'jean' }
+        ]
+        for (let s in ar) {
+            rect.innerHTML += ar[s] + '<br>';
+        }
+        for (let s in ar) {
+            rect.innerHTML += JSON.stringify(ar[s]) + '<br>'
+        }
+        //把ar陣列 換成 json格式的字串
+        obj = JSON.stringify(ar)
+        console.log("1" + typeof (obj)); // type = string
+
+        //把json格式的字串 換回來
+        aaa = JSON.parse(obj);
+        console.log("2" + typeof (aaa)); // type = object
+        console.log("2" + aaa[1].name);  // 陣列的方法可用
+
+
+        let person = { name: "bill", age: 20, gender: "male" }
+        console.log("3" + typeof (person)); // type = object
+        ////把person物件 換成 json格式的字串
+        let per_json = JSON.stringify(person);
+        rect.innerHTML += '<br>' + JSON.stringify(per_json) + '<br>'; //顯示在頁面上
+        console.log("3" + typeof (per_json)); // type = string
+
+        //把json格式的字串 換回來
+        per_o = JSON.parse(per_json);
+        console.log("3" + typeof (per_o)); // type = object
+        for (let s in per_o) {  //用 for in  把值秀出來
+            console.log('key:' + s + ', value:' + per_o[s])
+        }
+
+        //然內容打的是陣列,但整個實質上是字串  
+        str = '[{ "name": "bill"},{ "age": 20},{"gender": "male"}]';
+
+        //從JSON格式轉回後 還是字串
+        rect.innerHTML += JSON.parse(str);
+
+        console.log("4" + typeof (str));  // type = string
+        console.log("4" + str[0].name);   //陣列方法叫不出內容
+    </script>
+</body>
+
+</html>
