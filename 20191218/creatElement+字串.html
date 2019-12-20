@@ -66,18 +66,20 @@
 
         }
 
-        //延遲opacity
-        // let bb = document.querySelectorAll('.ball');
-        // i = 0;
-        // for (let s of bb) {
+        // 延遲opacity
+        let bb = document.querySelectorAll('.ball');
+        i = 0;
+        for (let s of bb) {
 
-        //     i++;
-        //     setTimeout(() => {
-        //         s.style.opacity = 1;
-        //     }, 1000 * i);
-
-        // }
-
+            i++;
+            setTimeout(() => {
+                s.style.opacity = 1;
+            }, 1000 * i);
+            //閃爍
+            setTimeout(() => {
+                s.style.opacity = 0;
+            }, 1000 * (i + 1));
+        }
 
 
 
