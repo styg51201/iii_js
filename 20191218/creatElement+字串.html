@@ -59,7 +59,7 @@
 
 
             //對 b 設一個style為 transition: .4 + "s"
-            b.style.transition = 2 + "s";
+            b.style.transition = 1 + "s";
 
             //把 b 加到 id #rect 子層
             rect.appendChild(b);
@@ -74,11 +74,11 @@
             i++;
             setTimeout(() => {
                 s.style.opacity = 1;
-            }, 1000 * i);
+            }, 900 * i);
             //閃爍
             setTimeout(() => {
                 s.style.opacity = 0;
-            }, 1000 * (i + 1));
+            }, 1000 * (i + 1.5));
         }
 
 

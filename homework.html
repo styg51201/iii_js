@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>十萬以內的質數有: <span id="info"></span> 個</h2>
+    <script>
+        let info = document.querySelector('#info');
+        // let ar = [];
+        // for (i = 2; i < 10E4; i++) {
+        //     ar.push(i);
+        // }
+
+        // function aa(y) {
+        //     let cr = [];
+        //     for (i = 1; i <= y; i++) {
+        //         if (y % i === 0) {
+        //             cr.push(y);
+        //         }
+        //     }
+        //     if (cr.length === 2) {
+        //         return true;
+        //     }
+        // }
+        // let br = ar.filter(function (val) {
+        //     return aa(val);
+        // })
+        // info.innerHTML += br.length;
+
+
+        let ar = [2, 3, 5];
+        let i, j, k, m;
+        for (i = 2; i <= 100000; i++) {
+            if (i % 2 === 0 || i % 3 === 0 || i % 5 === 0) { continue }
+            else {
+                for (k = 2, m = 0; k < (i / 2); k++) {
+                    if (i % k === 0) { m += 1; }
+                }
+                if (m === 0) { ar.push(i) };
+            }
+        }
+        info.innerHTML += ar.length;
+
+    </script>
+</body>
+
+</html>
