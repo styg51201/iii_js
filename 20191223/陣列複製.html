@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="rect"></div>
+
+    <script>
+        let rect = document.querySelector('#rect');
+        const ar = [12, 99, 'aaa', {
+            name: 'bill',
+            age: 25,
+            gender: 'male'
+        }];
+        const br = ar;
+
+        const ar_1 = ar.slice(); // ar.concat() // 單層複製
+        const ar_m = JSON.parse(JSON.stringify(ar)); // 深層複製
+
+        ar[2] = 'bbb';
+        ar[3].name = 'david';
+
+        rect.innerHTML += JSON.stringify(ar) + '<br>';
+        rect.innerHTML += JSON.stringify(br) + '<br>';
+        rect.innerHTML += JSON.stringify(ar_1) + '<br>';
+        rect.innerHTML += JSON.stringify(ar_m) + '<br>';
+
+
+
+        rect.innerHTML += '<br>';
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

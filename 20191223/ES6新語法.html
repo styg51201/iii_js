@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="rect">
+    </div>
+
+    <script>
+        // ES6 destructuring ES6新用法
+        let rect = document.querySelector('#rect');
+        const p = {
+            name: 'bill',
+            age: 25,
+            gender: 'male'
+        };
+        const ar = [12, 99, 'aaa'];
+        let firstname = 'shin';
+        let lasttname = 'lin';
+
+        let { name, age, aaa } = p;
+
+        rect.innerHTML += name + '<br>';
+        rect.innerHTML += age + '<br>';
+        rect.innerHTML += aaa + '<br>';
+        rect.innerHTML += '-----<br>';
+
+        let p2 = { firstname, lasttname };
+        rect.innerHTML += JSON.stringify(p2) + '<br>';
+        rect.innerHTML += '-----<br>';
+
+        let ar2 = [1, 2, ...ar, 7];
+        rect.innerHTML += JSON.stringify(ar2) + '<br>';
+        rect.innerHTML += '-----<br>';
+
+
+    </script>
+</body>
+
+</html>
