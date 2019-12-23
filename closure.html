@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="rect">
+    </div>
+
+    <script>
+        let rect = document.querySelector('#rect');
+
+
+        const f = (function () {
+            let n = 5;
+            return function y(a = 1) {
+                if (n) {
+                    n--;
+                    return n * a;
+                } else {
+                    return '禁止再呼叫';
+                }
+            };
+        })();
+
+        //意思像只能呼叫5次
+        rect.innerHTML += f(6) + '<br>';
+        rect.innerHTML += f() + '<br>';
+        rect.innerHTML += f() + '<br>';
+        rect.innerHTML += f() + '<br>';
+        rect.innerHTML += f() + '<br>';
+        rect.innerHTML += f() + '<br>';
+
+
+    </script>
+</body>
+
+</html>

@@ -40,13 +40,18 @@
             if (i % 2 === 0 || i % 3 === 0 || i % 5 === 0) { continue }
             else {
                 for (k = 2, m = 0; k < (i / 2); k++) {
-                    if (i % k === 0) { m += 1; }
+                    if (i % k === 0) { m++; }
                 }
                 if (m === 0) { ar.push(i) };
             }
         }
         info.innerHTML += ar.length;
 
+
+        const f3 = function (n) {
+            console.log(this.n);
+        };
+        f3(4);
     </script>
 </body>
 

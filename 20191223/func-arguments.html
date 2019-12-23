@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="rect">
+    </div>
+
+    <script>
+
+        let rect = document.querySelector('#rect');
+
+        // function myfunc(a, b) {
+        //     console.log(arguments);
+        //     console.log(arguments[1]);
+        // }
+        // myfunc(1, 2, 3, 4)
+
+        // function myfunc2(a, ...b) {
+        //     console.log(a, b);
+        //     console.log(b[3]);
+        // }
+        // myfunc2(1, 2, 3, 4, 5)
+
+        function myfunc3(a = 10, b) {
+            console.log(a + b);
+            console.log(b);
+            console.log(a);
+        }
+        myfunc3(1, 2);
+        myfunc3(b = 2);
+
+    </script>
+</body>
+
+</html>

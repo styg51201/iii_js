@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="rect">
+    </div>
+
+    <button id="btn">click</button>
+
+    <script>
+        let rect = document.querySelector('#rect');
+        let btn = document.querySelector('#btn');
+
+        //在全域裡this指的是window
+        function f1() {
+            console.log(this); // context
+            console.log(self); //self指的是window
+            console.log('----');
+        }
+
+        f1();
+
+        // this 根據情況不同會變動
+        btn.onclick = f1;
+
+
+    </script>
+</body>
+
+</html>

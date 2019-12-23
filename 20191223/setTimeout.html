@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #c7fff8;
+        }
+
+        .ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #ff1916;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            left: 50px;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="rect">
+        <div class="ball"></div>
+    </div>
+
+    <script>
+        let rect = document.querySelector('#rect');
+        let ball = document.querySelector('.ball');
+
+        // setTimeout(function(){
+        //     ball.style.left = '200px';
+        // }, 30);
+
+
+        //setTimeout 的重複使用方法  函式的最後面加setTimeout 等於 函式執行到最後 執行了setTimeout 而setTimeout裡面 又執行了此函式 然後就一直repeat  此方法不是遞迴 並沒有自己呼叫自己 只是自己裡面的某個函式呼叫了自己
+        const f = () => {
+            ball.style.left = ball.offsetLeft + 5 + 'px';
+            if (ball.offsetLeft >= 750) {
+                return;
+            }
+            setTimeout(f, 30);
+
+
+        }
+        f();
+
+        //重複觸發
+        // setInterval(function () {
+        //     ball.style.left = parseInt(ball.style.left) + 5 + 'px';
+        // }, 30);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="rect">
+    </div>
+
+    <button>click 1</button>
+    <br>
+    <button>click 2</button>
+    <br>
+    <button>click 3</button>
+    <br>
+    <button>click 4</button>
+    <br>
+    <button>click 5</button>
+    <br>
+    <button>click 6</button>
+    <script>
+        let rect = document.querySelector('#rect');
+        let btns = document.querySelectorAll('button'); // NodeList
+
+        //似懂非懂
+        const btnAr = [].filter.apply(btns, [function (el) { return 1; }]);
+
+
+        //下面把函式另外寫在外面 
+        const myFunc = function (el) {
+            return 1;
+        };
+
+
+        const btnAr = [].filter.apply(btns, [myFunc]);//apply規定後面的函式要用array包=[]
+        const btnAr2 = [].filter.call(btns, myFunc);//call 就直接寫上去
+        const btnAr3 = [].filter.bind(btns)(myFunc);//bind 用()包
+
+        //上面三種功能一樣 只用寫法不同
+
+
+        const ar1 = [2, 3, 4].filter(myFunc);
+
+
+    </script>
+</body>
+
+</html>

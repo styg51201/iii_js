@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="rect">
+    </div>
+
+    <script>
+
+        let rect = document.querySelector('#rect');
+        //函式寫在呼叫後面 還是會執行 因為設定函式 等同於宣告 
+        showLine([3, 4, 5]);
+
+        function showLine(str) {
+            rect.innerHTML += str + '<br>';
+            // console.log(str);
+        }
+
+        showLine([3, 4, 5]);
+
+        showLine(abc);
+
+        var abc = 100;
+
+        //函式名稱 等於變數 下面把函式的內容指定給console.log的方法 原本的內容被覆蓋了
+        showLine = console.log;
+
+        showLine([3, 4, 5]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="rect">
+    </div>
+
+    <script>
+        // ES6 destructuring
+        let rect = document.querySelector('#rect');
+
+        // TODO: 1. Object, Array -> json
+        function showLine(str) {
+            if (typeof (str) === 'object') {
+                rect.innerHTML += JSON.stringify(str) + '<br>'
+            } else {
+                rect.innerHTML += str + '<br>';
+            }
+        }
+        let ar = '3456' + 789;
+        let dr = '123';
+
+        let bc = { name: 'Bill', age: 25, gender: 'male' };
+        console.log(showLine(bc));
+        console.log(showLine(ar));
+        console.log(showLine(dr));
+
+
+
+        // function func(ar) {
+        //     ar.push('abc');
+        // }
+
+        // const bc = [5, 6, 7];
+        // func(bc);
+        // showLine(bc);
+        // showLine(ar);
+
+        // TODO: 2. function shuffle(ar){ 回傳亂數排序的陣列 }
+        // TODO: 不要影響到原本的陣列內容
+        let arr = [1, 2, 3, 4, 5, 6];
+        let brr;
+        function crr(a) {
+            brr = a.slice();
+            brr.sort(function () {
+                return Math.random() - 0.5;
+            })
+            return brr;
+        }
+
+        console.log(crr(arr));
+
+
+    </script>
+</body>
+
+</html>
