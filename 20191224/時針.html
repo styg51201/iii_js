@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .clock {
+        position: relative;
+        width: 600px;
+        height: 600px;
+        background-color: #c7fff8;
+        border: 1px solid black;
+        border-radius: 50%;
+
+    }
+
+    .hand {
+        position: absolute;
+        left: 300px;
+        top: 300px;
+    }
+
+    .hand-sec {
+        position: absolute;
+        width: 20px;
+        height: 300px;
+        background-color: #ff1916;
+        left: -10px;
+        top: -290px;
+    }
+
+    .hand-m {
+        position: absolute;
+        width: 20px;
+        height: 200px;
+        background-color: #21e96d;
+        left: -10px;
+        top: -190px;
+    }
+
+    .hand-h {
+        position: absolute;
+        width: 20px;
+        height: 150px;
+        background-color: #251ac4;
+        left: -10px;
+        top: -140px;
+    }
+</style>
+
+<body>
+    <div class="clock">
+        <!-- 因為指針的旋轉中心設定後 每轉一次中心就會跑掉
+        所以把指針包在一個點裡面  讓點旋轉 裡面的指針也會跟著轉 -->
+        <div class="hand">
+            <div class="hand-h"></div>
+        </div>
+        <div class="hand">
+            <div class="hand-m"></div>
+        </div>
+        <div class="hand">
+            <div class="hand-sec"></div>
+        </div>
+
+        <script>
+            const hands = document.querySelectorAll('.hand');
+
+            // sec_hand.style.transform = 'rotate(30deg)';
+
+            function time() {
+                let now = new Date();
+                let ms = now.getMilliseconds();
+                let s = now.getSeconds();
+                let m = now.getMinutes();
+                let h = now.getHours();
+                hands[2].style.transform = `rotate(${s * 6 + (6 / 1000) * ms}deg)`;
+                hands[1].style.transform = `rotate(${m * 6}deg)`;
+                hands[0].style.transform = `rotate(${h * 30 + m * .5}deg)`;
+
+                setTimeout(time, 30);
+            }
+            time();
+
+        </script>
+
+</body>
+
+</html>

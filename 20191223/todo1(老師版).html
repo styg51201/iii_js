@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="rect">
+</div>
+<button>1</button>
+<button>2</button>
+<button>3</button>
+<button>4</button>
+<button>5</button>
+<button>6</button>
+
+<script>
+    // a20191223-06-parameters.html 討論
+    let rect = document.querySelector('#rect');
+
+    // TODO: 2. function shuffle(ar){ 回傳亂數排序的陣列 }
+    // TODO: 不要影響到原本的陣列內容
+
+    function shuffle(ar) {
+        ar = [].slice.call(ar); // NodeList 之類也要可以使用
+        // ar = ar.slice();
+        ar.sort( ()=> Math.random()-.5 );
+        return ar;
+    }
+
+    const btns = document.querySelectorAll('button');
+
+    console.log( shuffle(btns));
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="rect"></div>
+    <script>
+        let rect = document.querySelector('#rect');
+
+
+        function time() {
+            let now = new Date();
+            //換成字串 =>Tue Dec 24 2019 10:26:32 GMT+0800 
+            //在依空格 去切隔成陣列 我想要的時間在[4]個
+            let ar = now.toString().split(" ");
+            rect.innerHTML = ar[4];
+            setTimeout(time, 1000);
+        }
+        time();
+
+    </script>
+</body>
+
+</html>

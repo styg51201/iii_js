@@ -10,11 +10,13 @@
 
 <body>
     <h2>十萬以內的質數有: <span id="info"></span> 個</h2>
+    <h3>時間<span id="info2"></span></h3>
     <p>列出:</p>
-    <p id="info2"></p>
+    <p id="info3"></p>
     <script>
         let info = document.querySelector('#info');
         let info2 = document.querySelector('#info2');
+        let info3 = document.querySelector('#info3');
         // let ar = [];
         // for (i = 2; i < 10E4; i++) {
         //     ar.push(i);
@@ -37,20 +39,21 @@
         // info.innerHTML += br.length;
 
 
-        let ar = [];
-        let i, j, k, m;
-        for (i = 2; i < 100000; i++) {
-            for (k = 2, m = 0; k < Math.ceil(i / 2); k++) {
+        let ar = [2, 3, 5];
+        let i, k;
+        let startTime = new Date().getTime();
+        for (i = 2; i <= 100000; i++) {
+            for (k = 2; k <= (i / 2); k++) {
                 if (i % k === 0) {
                     break;
-                } else {
-                    m++;
+                } else if (k === Math.floor(i / 2)) {
+                    ar.push(i);
                 }
             }
-            if (m+1 == Math.floor(i / 2)) { ar.push(i) };
         }
         info.innerHTML += ar.length;
-        info2.innerHTML += ar;
+        info2.innerHTML += (new Date().getTime() - startTime) + '毫秒';
+        info3.innerHTML += ar;
 
     </script>
 </body>
