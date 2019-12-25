@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #c7fff8;
+        }
+
+        .ball {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #ff1916;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            left: 50px;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="rect">
+    </div>
+
+    <script>
+        let rect = document.querySelector('#rect');
+
+        //球的數量
+        const ballNum = 24;
+
+        //  角度?
+        const angUnit = Math.PI * 2 / ballNum;
+
+
+        let i, b, x, y;
+
+
+
+        for (i = 0; i < ballNum; i++) {
+            b = document.createElement('div');
+            b.className = 'ball';
+            b.innerHTML = i;
+            // 400是為了讓球在中心 + x軸 
+            x = 400 + Math.cos(angUnit * i) * 250;
+            y = 300 + Math.sin(angUnit * i) * 250;
+
+            //                       -60度 是為了讓1在時鐘1的位置
+            // x = 400-15 + Math.cos(angUnit*i-Math.PI/3)*250;
+            // y = 300-15 + Math.sin(angUnit*i-Math.PI/3)*250;
+
+
+            b.style.left = x + 'px';
+            b.style.top = y + 'px';
+            rect.appendChild(b);
+        }
+    </script>
+</body>
+
+</html>

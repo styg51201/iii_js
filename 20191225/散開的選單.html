@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #c7fff8;
+        }
+
+        .ball {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #ff1916;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            left: 50px;
+            top: 100px;
+            transition: .4s;
+
+        }
+
+        .btn {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            left: 375px;
+            top: 275px;
+            border-radius: 50%;
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="rect">
+        <div class="btn"></div>
+    </div>
+
+    <script>
+        let rect = document.querySelector('#rect');
+        let btn = document.querySelector('.btn');
+        let close = true;
+        let myballs = [];
+
+
+
+        //球的數量
+        const ballNum = 12;
+
+        //  球的角度 = 360度/球的數量
+        const angUnit = Math.PI * 2 / ballNum;
+
+        let i, b, x, y;
+        for (i = 0; i < ballNum; i++) {
+            b = document.createElement('div');
+            b.className = 'ball';
+            b.innerHTML = i;
+            // 400是為了讓球在中心 + x軸  + 250球呈現的園的半徑
+            x = 400 - 15 + Math.cos(angUnit * i) * 250;
+            y = 300 - 15 + Math.sin(angUnit * i) * 250;
+            b.style.left = 385 + 'px';
+            b.style.top = 285 + 'px';
+            b.style.opacity = 1;
+            rect.appendChild(b);
+            myballs.push({
+                ball: b,
+                openX: Math.round(x),
+                openY: Math.round(y),
+                closeX: 385,
+                closeY: 285
+            })
+        }
+        rect.appendChild(btn);
+
+        const balls = document.querySelectorAll('.ball')
+
+        //老師作法  在foreach裡判斷if
+        // function move() {
+        //     opend = !opend;
+
+        //     myballs.forEach((val, ind) => {
+        //         let x, y;
+        //         if (opend) {
+        //             x = val.openX;
+        //             y = val.openY;
+        //         }
+        //         else {
+        //             x = val.closeX;
+        //             y = val.closeY
+        //         }
+        //         setTimeout(function () {
+        //             val.ball.style.left = x + 'px';
+        //             val.ball.style.top = y + 'px';
+        //         }, 100 * ind)
+        //     })
+        // };
+
+        //我的直覺想法 先判斷if 再去foreach 改座標
+        //如果不用function的話 就要用兩次foreach了
+        function move() {
+
+            if (close) {
+                go('open');
+            } else {
+                go('close');
+            }
+            // opend = !opend;
+            function go(wtf) {
+                myballs.forEach((val, ind) => {
+                    let x, y;
+
+                    x = val[`${wtf}X`];
+                    y = val[`${wtf}Y`];
+
+                    setTimeout(function () {
+                        val.ball.style.left = x + 'px';
+                        val.ball.style.top = y + 'px';
+                    }, 100 * ind)
+                })
+            }
+        }
+        btn.onclick = move;
+
+
+    </script>
+</body>
+
+</html>

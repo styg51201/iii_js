@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #b0e9ff;
+        }
+
+        .ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff2f27;
+            border-radius: 50%;
+            border: 1px solid black;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="rect">
+
+    </div>
+
+    <script>
+        const rect = document.querySelector('#rect');
+        let b;
+
+        const mDown = event => {
+            rect.addEventListener('mousemove', mMove);
+        };
+
+        //放開滑鼠的時候取消事件用 remove 
+        //因為事件像是一個開關 我按的時候把它打開  但是我按完沒按的時候 它並沒有關掉
+        const mUp = event => {
+            rect.removeEventListener('mousemove', mMove);
+        };
+        const mMove = event => {
+            b = document.createElement('div');
+            b.className = 'ball';
+            b.style.left = event.offsetX - 10 + 'px';
+            b.style.top = event.offsetY - 10 + 'px';
+
+            rect.appendChild(b);
+        };
+        rect.addEventListener('mousedown', mDown);
+
+        //用window表示 就算在rect外面放開滑鼠 也有作用
+        window.addEventListener('mouseup', mUp);
+
+
+
+    </script>
+</body>
+
+</html>

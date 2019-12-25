@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .clock {
+        position: relative;
+        width: 600px;
+        height: 600px;
+        background-color: #c7fff8;
+        border: 1px solid black;
+        border-radius: 50%;
+
+    }
+
+    .hand {
+        position: absolute;
+        left: 300px;
+        top: 300px;
+    }
+
+    .hand-sec {
+        position: absolute;
+        width: 20px;
+        height: 300px;
+        background-color: #ff1916;
+        left: -10px;
+        top: -290px;
+    }
+
+    .hand-m {
+        position: absolute;
+        width: 20px;
+        height: 200px;
+        background-color: #21e96d;
+        left: -10px;
+        top: -190px;
+    }
+
+    .hand-h {
+        position: absolute;
+        width: 20px;
+        height: 150px;
+        background-color: #251ac4;
+        left: -10px;
+        top: -140px;
+    }
+
+    .scale-container {
+        position: absolute;
+        left: 300px;
+        top: 300px;
+    }
+
+    .sc1 {
+        position: absolute;
+    }
+
+    .sc2 {
+        position: absolute;
+        width: 1px;
+        height: 10px;
+        background-color: gray;
+        left: -.5px;
+        top: -300px;
+
+    }
+
+    .sc2-5min {
+        width: 2px;
+        height: 15px;
+        background-color: #5a5a5a;
+        left: -1px;
+    }
+</style>
+
+<body>
+    <div class="clock">
+        <div class="scale-container">
+            <div class="sc2"></div>
+        </div>
+
+
+        <!-- 因為指針的旋轉中心設定後 每轉一次中心就會跑掉
+        所以把指針包在一個點裡面  讓點旋轉 裡面的指針也會跟著轉 -->
+        <div class="hand">
+            <div class="hand-h"></div>
+        </div>
+        <div class="hand">
+            <div class="hand-m"></div>
+        </div>
+        <div class="hand">
+            <div class="hand-sec"></div>
+        </div>
+    </div>
+    <script>
+        const hands = document.querySelectorAll('.hand');
+        const sc = document.querySelector('.scale-container');
+        let el;
+        for (i = 0; i < 60; i++) {
+            el = document.createElement('div');
+            el.className = 'sc1';
+            el.style.transform = `rotate(${i * 6}deg)`
+            if (i % 5 === 0) {
+                el.innerHTML = `<div class="sc2 sc2-5min"></div>`;
+            } else {
+                el.innerHTML = `<div class="sc2"></div>`;
+            }
+            sc.appendChild(el);
+
+        }
+
+
+        function time() {
+            let now = new Date();
+            let ms = now.getMilliseconds();
+            let s = now.getSeconds();
+            let m = now.getMinutes();
+            let h = now.getHours();
+            hands[2].style.transform = `rotate(${s * 6 + (6 / 1000) * ms}deg)`;
+            hands[1].style.transform = `rotate(${m * 6}deg)`;
+            hands[0].style.transform = `rotate(${h * 30 + m * .5}deg)`;
+
+            setTimeout(time, 30);
+        }
+        time();
+
+    </script>
+
+</body>
+
+</html>

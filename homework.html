@@ -17,39 +17,19 @@
         let info = document.querySelector('#info');
         let info2 = document.querySelector('#info2');
         let info3 = document.querySelector('#info3');
-        // let ar = [];
-        // for (i = 2; i < 10E4; i++) {
-        //     ar.push(i);
-        // }
-
-        // function aa(y) {
-        //     let cr = [];
-        //     for (i = 1; i <= y; i++) {
-        //         if (y % i === 0) {
-        //             cr.push(y);
-        //         }
-        //     }
-        //     if (cr.length === 2) {
-        //         return true;
-        //     }
-        // }
-        // let br = ar.filter(function (val) {
-        //     return aa(val);
-        // })
-        // info.innerHTML += br.length;
 
 
-        let ar = [2, 3, 5];
-        let i, k;
+        let ar = [];
+        let i, k, m;
         let startTime = new Date().getTime();
         for (i = 2; i <= 100000; i++) {
-            for (k = 2; k <= (i / 2); k++) {
+            for (k = 2, m = 0; k <= Math.sqrt(i); k++) {
                 if (i % k === 0) {
-                    break;
-                } else if (k === Math.floor(i / 2)) {
-                    ar.push(i);
-
+                    m++;
                 }
+            }
+            if (m === 0) {
+                ar.push(i);
             }
         }
         info.innerHTML += ar.length;
