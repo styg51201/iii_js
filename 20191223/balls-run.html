@@ -41,12 +41,22 @@
     <script>
         let rect = document.querySelector('#rect');
         let balls = document.querySelectorAll('.ball');
+        let ar = [true, true, true];
+
+
 
         const f = () => {
-            let posi
-            balls.forEach((el) => {
-                el.style.left = el.offsetLeft + 2 + Math.random() * 3 + 'px';
+            let posi;
+            balls.forEach((el, ind) => {
                 posi = el.offsetLeft;
+                if (posi > 770 || posi < 0) {
+                    ar[ind] = !ar[ind];
+                };
+                if (ar[ind]) {
+                    el.style.left = el.offsetLeft + 3 + Math.random() * 10 + 'px';
+                } else {
+                    el.style.left = el.offsetLeft - (3 + Math.random() * 10) + 'px';
+                };
 
             });
             setTimeout(f, 30);
