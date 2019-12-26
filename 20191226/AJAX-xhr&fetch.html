@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea cols="30" rows="10">sflsk</textarea>
+    <br><button onclick="doAjax()">load</button>
+    <br>
+    <div id="info"></div>
+    <script>
+        const info = document.querySelector('#info');
+
+
+        //舊的
+        function doAjax() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                console.log(this.readyState, this.status);
+                if (this.readyState === 4 && this.status === 200) {
+                    info.innerHTML = this.responseText;
+                }
+            };
+            xhr.open('GET', 'data/hello_ajax.txt', true);
+            xhr.send();
+        }
+
+
+        //ES6 新用法
+        function doAjax() {
+
+            fetch('123.txt')
+                .then(response => {      //response是參數
+                    return response.text();
+                })
+                .then(txt => {          //txt是參數
+                    info.innerHTML = txt;
+                });
+        }
+
+    </script>
+</body>
+
+</html>

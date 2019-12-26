@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="link">
+        <a href="javascript:fn('abc')">function call</a>
+        <br>
+        <a href="http://www.pchome.com.tw">pchome</a>
+        <br>
+        <a href="http://tw.yahoo.com">yahoo</a>
+        <br>
+    </div>
+    <script>
+        const fn = (s) => {
+            console.log(1, s);
+        };
+
+        const aa = document.querySelectorAll('a');
+
+        const listener = (e) => {
+            console.log(e);
+            // console.log(x);
+            // event.preventDefault();  // 取消預設的功能
+        };
+
+        aa.forEach(el => {
+            el.addEventListener(('click'), listener;
+        });
+
+
+    </script>
+</body>
+
+</html>

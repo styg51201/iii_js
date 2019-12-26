@@ -72,7 +72,6 @@
             y = 300 - 15 + Math.sin(angUnit * i) * 250;
             b.style.left = 385 + 'px';
             b.style.top = 285 + 'px';
-            b.style.opacity = 1;
             rect.appendChild(b);
             myballs.push({
                 ball: b,
@@ -88,11 +87,11 @@
 
         //老師作法  在foreach裡判斷if
         // function move() {
-        //     opend = !opend;
+        //     close = !close;
 
         //     myballs.forEach((val, ind) => {
         //         let x, y;
-        //         if (opend) {
+        //         if (!close) {
         //             x = val.openX;
         //             y = val.openY;
         //         }
@@ -129,6 +128,11 @@
                         val.ball.style.top = y + 'px';
                     }, 100 * ind)
                 })
+                if (wtf === 'open') {
+                    close = false;
+                } else {
+                    close = true;
+                }
             }
         }
         btn.onclick = move;
