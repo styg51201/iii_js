@@ -41,7 +41,12 @@
     <script>
         let rect = document.querySelector('#rect');
         let balls = document.querySelectorAll('.ball');
-        let ar = [true, true, true];
+        let ar = [];
+        
+        for (i = 0; i < balls.length; i++) {
+            ar.push(true);
+        }
+        // let ar = [true, true, true];
 
 
 
