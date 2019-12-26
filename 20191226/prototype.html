@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="info"></div>
+    <script>
+        const info = document.querySelector('#info');
+        const obj = {
+            name: 'bill',
+            age: 30,
+            gender: 'male',
+            key: [1, 2, 3]
+        };
+        let ar = [{
+            name: 'bill',
+            age: 30,
+            gender: 'male',
+        }, 1, 2]
+
+        info.innerHTML += obj.toString() + '<br>';
+
+        Object.prototype.toString = function () {
+            return JSON.stringify(this);
+        };
+
+        info.innerHTML += obj.toString() + '<br>';
+        info.innerHTML += ar.toString() + '<br>';
+
+    </script>
+</body>
+
+</html>
