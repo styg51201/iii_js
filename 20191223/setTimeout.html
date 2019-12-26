@@ -51,12 +51,10 @@
                 return;
             }
             setTimeout(f, 30);
-
-
         }
         f();
 
-        //重複觸發
+        //重複觸發  最一開始會延遲設定的時間然後才啟動 (setTimeout的重複方法則不會這樣)
         // setInterval(function () {
         //     ball.style.left = parseInt(ball.style.left) + 5 + 'px';
         // }, 30);
