@@ -42,7 +42,7 @@
         let rect = document.querySelector('#rect');
         let balls = document.querySelectorAll('.ball');
         let ar = [];
-        
+
         for (i = 0; i < balls.length; i++) {
             ar.push(true);
         }
@@ -54,9 +54,13 @@
             let posi;
             balls.forEach((el, ind) => {
                 posi = el.offsetLeft;
-                if (posi > 770 || posi < 0) {
+                if (posi >= 770) {
                     ar[ind] = !ar[ind];
-                };
+                    el.style.left = 769 + 'px';
+                } else if (posi <= 0) {
+                    ar[ind] = !ar[ind];
+                    el.style.left = 1 + 'px';
+                }
                 if (ar[ind]) {
                     el.style.left = el.offsetLeft + 3 + Math.random() * 10 + 'px';
                 } else {
