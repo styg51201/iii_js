@@ -26,6 +26,7 @@
             line-height: 30px;
             left: 50px;
             top: 100px;
+            transition: 0.03s;
         }
     </style>
 </head>
@@ -48,23 +49,30 @@
         }
         // let ar = [true, true, true];
 
-
-
         const f = () => {
-            let posi;
+            let posi, go, back;
             balls.forEach((el, ind) => {
                 posi = el.offsetLeft;
-                if (posi >= 770) {
-                    ar[ind] = !ar[ind];
-                    el.style.left = 769 + 'px';
-                } else if (posi <= 0) {
-                    ar[ind] = !ar[ind];
-                    el.style.left = 1 + 'px';
-                }
+                go = el.offsetLeft + 5 + Math.random() * 5 + 'px';
+                back = el.offsetLeft - (5 + Math.random() * 5) + 'px';
+
                 if (ar[ind]) {
-                    el.style.left = el.offsetLeft + 3 + Math.random() * 10 + 'px';
+
+                    if (parseFloat(go) > 770) {
+                        el.style.left = 770 + 'px';
+                        ar[ind] = !ar[ind];
+                    }
+                    else {
+                        el.style.left = go;
+                    }
                 } else {
-                    el.style.left = el.offsetLeft - (3 + Math.random() * 10) + 'px';
+                    if (parseFloat(back) < 0) {
+                        el.style.left = 0 + 'px';
+                        ar[ind] = !ar[ind];
+                    }
+                    else {
+                        el.style.left = back;
+                    }
                 };
 
             });
