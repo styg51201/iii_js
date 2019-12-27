@@ -37,7 +37,7 @@
 
             fetch('123.txt')
                 .then(response => {      //response是參數
-                    return response.text();
+                    return response.text();  //return 給下一個then
                 })
                 .then(txt => {          //txt是參數
                     info.innerHTML = txt;
