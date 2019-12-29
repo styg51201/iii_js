@@ -83,6 +83,11 @@
         background-color: #ffffff;
         left: -2.5px;
     }
+
+    .num {
+        position: absolute;
+        background-color: #0077ff;
+    }
 </style>
 
 <body>
@@ -105,9 +110,11 @@
         </div>
     </div>
     <script>
+        const clock = document.querySelectorAll('.clock');
         const hands = document.querySelectorAll('.hand');
         const sc = document.querySelector('.scale-container');
-        let el;
+        let el, i;
+
         for (i = 0; i < 60; i++) {
             el = document.createElement('div');
             el.className = 'sc1';
@@ -119,6 +126,19 @@
             }
             sc.appendChild(el);
 
+        }
+
+        const num = 12;
+        const angUnit = Math.PI * 2 / num;
+
+        let k, b;
+        for (k = 0; k < 12; k++) {
+            b = document.createElement('div');
+            b.className = 'num';
+            b.innerHTML = k + 1;
+            b.style.left = 300 + Math.cos(angUnit * k) * 200;
+            b.style.top = 300 + Math.sin(angUnit * k) * 200;
+            clock.appendChild(b);
         }
 
 
